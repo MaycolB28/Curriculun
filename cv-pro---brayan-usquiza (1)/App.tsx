@@ -1,13 +1,13 @@
 
 import React, { useState, useRef } from 'react';
-import { 
-  Briefcase, 
-  GraduationCap, 
-  User, 
-  Mail, 
-  Phone, 
-  MapPin, 
-  Linkedin, 
+import {
+  Briefcase,
+  GraduationCap,
+  User,
+  Mail,
+  Phone,
+  MapPin,
+  Linkedin,
   ChevronRight,
   Camera,
   Wand2
@@ -45,7 +45,7 @@ export default function App() {
     try {
       const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
       const base64Data = cvData.photo.split(',')[1];
-      
+
       const response = await ai.models.generateContent({
         model: 'gemini-2.5-flash-image',
         contents: {
@@ -78,14 +78,14 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-slate-50 flex flex-col items-center py-0 md:py-8 px-0 md:px-4">
-      
+
       <div className="w-full max-w-5xl bg-white shadow-2xl overflow-hidden flex flex-col md:flex-row cv-container border-0 md:border md:border-slate-200 min-h-screen md:min-h-0">
-        
+
         {/* Left Sidebar */}
         <div className="w-full md:w-1/3 bg-[#001f3f] text-white p-8 lg:p-10">
           <div className="mb-10 text-center md:text-left">
             <div className="relative group w-40 h-40 mx-auto md:mx-0 mb-8">
-              <div 
+              <div
                 className="w-full h-full bg-white/10 rounded-full flex items-center justify-center border-4 border-white/20 overflow-hidden cursor-pointer relative"
                 onClick={() => fileInputRef.current?.click()}
               >
@@ -98,15 +98,15 @@ export default function App() {
                   <Camera className="w-8 h-8 text-white" />
                 </div>
               </div>
-              <input 
-                type="file" 
-                ref={fileInputRef} 
-                className="hidden" 
-                accept="image/*" 
-                onChange={handlePhotoUpload} 
+              <input
+                type="file"
+                ref={fileInputRef}
+                className="hidden"
+                accept="image/*"
+                onChange={handlePhotoUpload}
               />
               {cvData.photo && (
-                <button 
+                <button
                   onClick={(e) => { e.stopPropagation(); formalizePhoto(); }}
                   disabled={isFormalizing}
                   className="absolute bottom-1 right-1 bg-blue-500 p-2.5 rounded-full shadow-lg hover:scale-110 transition-transform no-print disabled:opacity-50"
@@ -130,11 +130,11 @@ export default function App() {
               <div className="space-y-4 text-sm">
                 <div className="flex items-center gap-3">
                   <Mail className="w-4 h-4 text-blue-300 flex-shrink-0" />
-                  <span className="break-all">{cvData.email}</span>
+                  <a href={`mailto:${cvData.email}`} className="break-all hover:underline text-white">{cvData.email}</a>
                 </div>
                 <div className="flex items-center gap-3">
                   <Phone className="w-4 h-4 text-blue-300 flex-shrink-0" />
-                  <span>{cvData.phone}</span>
+                  <a href={`tel:${cvData.phone.replace(/\s/g, '')}`} className="hover:underline text-white">{cvData.phone}</a>
                 </div>
                 <div className="flex items-center gap-3">
                   <MapPin className="w-4 h-4 text-blue-300 flex-shrink-0" />
@@ -148,7 +148,7 @@ export default function App() {
               <div className="space-y-4 text-sm">
                 <div className="flex items-center gap-3">
                   <Linkedin className="w-4 h-4 text-blue-300 flex-shrink-0" />
-                  <span className="break-all">{cvData.linkedin}</span>
+                  <a href={`https://${cvData.linkedin}`} target="_blank" rel="noopener noreferrer" className="break-all hover:underline text-white">{cvData.linkedin}</a>
                 </div>
               </div>
             </section>
