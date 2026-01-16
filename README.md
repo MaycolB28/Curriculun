@@ -3,7 +3,12 @@
 ![React](https://img.shields.io/badge/React-19.2.3-61DAFB?style=for-the-badge&logo=react&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.8.2-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
 ![Vite](https://img.shields.io/badge/Vite-6.2.0-646CFF?style=for-the-badge&logo=vite&logoColor=white)
+![GitHub Pages](https://img.shields.io/badge/GitHub_Pages-Live-success?style=for-the-badge&logo=github&logoColor=white)
 ![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
+
+## 🌐 Ver en Vivo
+
+**🔗 [https://maycolb28.github.io/Curriculun/](https://maycolb28.github.io/Curriculun/)**
 
 ## 🚀 Descripción
 
@@ -133,22 +138,44 @@ Funcionalidad experimental que utiliza Google Gemini AI para:
 
 ## 🌐 Deploy
 
-### Vercel (Recomendado)
+### GitHub Pages (Configurado) ✅
+
+Este proyecto está configurado para desplegarse automáticamente en GitHub Pages mediante GitHub Actions.
+
+**Sitio en vivo**: [https://maycolb28.github.io/Curriculun/](https://maycolb28.github.io/Curriculun/)
+
+#### Cómo funciona:
+1. Cada push a la rama `master` dispara automáticamente el workflow de deployment
+2. GitHub Actions ejecuta el build del proyecto
+3. Los archivos generados se despliegan automáticamente a GitHub Pages
+4. El sitio se actualiza en unos minutos
+
+#### Configuración inicial (ya realizada):
+- ✅ Workflow de GitHub Actions creado (`.github/workflows/deploy.yml`)
+- ✅ Configuración de Vite actualizada con `base: '/Curriculun/'`
+- ⚙️ **Acción requerida**: Habilitar GitHub Pages en la configuración del repositorio
+
+#### Para habilitar GitHub Pages (solo primera vez):
+1. Ve a: `https://github.com/MaycolB28/Curriculun/settings/pages`
+2. En **"Source"**, selecciona **"GitHub Actions"**
+3. Guarda los cambios
+4. Espera a que el workflow se ejecute (pestaña "Actions")
+5. Tu sitio estará disponible en: `https://maycolb28.github.io/Curriculun/`
+
+---
+
+### Otras Opciones de Deploy
+
+#### Vercel
 ```bash
 npm install -g vercel
 vercel
 ```
 
-### Netlify
+#### Netlify
 ```bash
 npm run build
 # Subir la carpeta dist/ a Netlify
-```
-
-### GitHub Pages
-```bash
-npm run build
-# Configurar GitHub Pages para servir desde /dist
 ```
 
 ## 👨‍💼 Sobre Mí
